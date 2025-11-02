@@ -1,11 +1,19 @@
 class Solution {
     int floorSqrt(int n) {
         // code here
-        int root = 1;
-        for(int i = 0; i <= n; i++){
-            if(i * i > n) break;
-            root = i;
+        int st = 0;
+        int end = n;
+        int ans = -1;
+        while(st <= end){
+            int mid = st + (end - st) / 2;
+            if(mid * mid <= n){
+                ans = mid;
+                st = mid + 1;
+            }
+            else{
+                end = mid - 1;
+            }
         }
-        return root;
+        return ans;
     }
 }
