@@ -5,12 +5,14 @@ class Solution {
         // code here
         int num = n;
         int count = 0;
-        while(num!=0){
-            int ld = num % 10;
-            if(ld != 0 && n % ld == 0){
-                count++;
+        while(n != 0){
+            int ld = n % 10;
+            if(ld != 0){
+                if(num % ld == 0){
+                    count++;
+                }
             }
-            num = num / 10;
+            n = n / 10;
         }
         return count;
     }
