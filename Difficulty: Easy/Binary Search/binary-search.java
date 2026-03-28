@@ -11,7 +11,7 @@ class Solution {
                 idx = mid;
                 end = mid - 1;
             }
-            else if(k > arr[mid]){
+            else if(arr[mid] < k){
                 st = mid + 1;
             }
             else{
