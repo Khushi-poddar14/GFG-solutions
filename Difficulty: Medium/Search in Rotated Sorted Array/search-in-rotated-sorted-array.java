@@ -1,15 +1,16 @@
 class Solution {
-    public int search(int[] nums, int target) {
-        int n = nums.length;
+    int search(int[] arr, int key) {
+        // code here
+        int n = arr.length;
         int st = 0;
         int end = n-1;
         while(st <= end){
             int mid = st + (end - st) / 2;
-            if(nums[mid] == target){
-                return mid;
-            }
-            else if(nums[st] <= nums[mid]){
-                if(nums[st] <= target && target < nums[mid]){
+            if(arr[mid] == key) return mid;
+            
+            //means if first half is sorted
+            else if(arr[st] <= arr[mid]){
+                if(arr[st] <= key && arr[mid] > key){
                     end = mid - 1;
                 }
                 else{
@@ -17,12 +18,10 @@ class Solution {
                 }
             }
             else{
-                if(nums[mid] < target && target <= nums[end]){
+                if(arr[end] >= key && arr[mid] < key){
                     st = mid + 1;
                 }
-                else{
-                    end = mid - 1;
-                }
+                else end = mid - 1;
             }
         }
         return -1;
